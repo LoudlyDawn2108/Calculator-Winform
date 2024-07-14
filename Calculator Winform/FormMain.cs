@@ -9,7 +9,12 @@ namespace Calculator_Winform {
             if (textInput.Text.Equals("0")) {
                 textInput.Text = "";
             }
-            textInput.Text += sender.ToString()?.Last();
+            char lastChar = sender.ToString()!.Last();
+            if (lastChar.Equals('²')) {
+                textInput.Text += "^2";
+            } else {
+                textInput.Text += lastChar;
+            }
         }
 
         private void buttonDelete_Click(object sender, EventArgs e) {
@@ -20,6 +25,14 @@ namespace Calculator_Winform {
         private void buttonAC_Click(object sender, EventArgs e) {
             labelResult.Text = "";
             textInput.Text = "";
+        }
+
+        private void buttonEqual_Click(object sender, EventArgs e) {
+            try {
+                labelResult.Text = Math_Expression_Evaluator.Program.Evaluate(textInput.Text).ToString();
+            } catch {
+                labelResult.Text = "Invalid Syntax";
+            }
         }
     }
 }

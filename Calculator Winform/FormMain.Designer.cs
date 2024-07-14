@@ -26,8 +26,7 @@
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             textInput = new TextBox();
             buttonPlus = new Button();
             buttonEqual = new Button();
@@ -98,6 +97,7 @@
             buttonEqual.TabIndex = 2;
             buttonEqual.Text = "=";
             buttonEqual.UseVisualStyleBackColor = false;
+            buttonEqual.Click += buttonEqual_Click;
             // 
             // button0
             // 
